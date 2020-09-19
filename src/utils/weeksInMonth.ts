@@ -1,6 +1,29 @@
 import { daysInMonth } from './daysInMonth';
 import { InternalError } from './error/internal-error';
 import { firstDayWeek } from './firstDayWeek';
+import { getSixDays } from './getSixDays';
+
+const complementLastWeek = (
+  month: number,
+  year: number,
+  weeks: number[][]
+): number[][] => {
+  if (weeks[0].length < 7) {
+    const lastDays = getSixDays(month - 1, year);
+    weeks[0] = [...lastDays.splice(weeks[0].length - 1), ...weeks[0]];
+  }
+
+  const lastPos = weeks[weeks.length - 1].length;
+  if (lastPos < 7) {
+    const firstDays = getSixDays(month + 1, year, false);
+    weeks[weeks.length - 1] = [
+      ...weeks[weeks.length - 1],
+      ...firstDays.splice(0, 7 - lastPos),
+    ];
+  }
+
+  return weeks;
+};
 
 export const weeksInMonth = (
   month: number,
@@ -12,7 +35,7 @@ export const weeksInMonth = (
 ): number[][] => {
   if (month < 0 || month > 11) throw new InternalError('Error: invalid month!');
 
-  if (loopFinish) return weeks;
+  if (loopFinish) return complementLastWeek(month, year, weeks);
   const _firstDayWeek = firstDayWeek(month, year);
 
   const week: number[] = [];
@@ -28,7 +51,7 @@ export const weeksInMonth = (
   }
 
   if (!week.length) {
-    return weeks;
+    return complementLastWeek(month, year, weeks);
   }
 
   weekIndex++;

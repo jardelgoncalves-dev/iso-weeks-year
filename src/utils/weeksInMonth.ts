@@ -17,13 +17,14 @@ export const weeksInMonth = (
 
   const week: number[] = [];
   for (let j = 0; j < 7; j++) {
-    if (weekIndex === 0 && j < _firstDayWeek) {
-      continue;
-    } else if (day > daysInMonth(month, year)) {
+    if (day > daysInMonth(month, year)) {
       break;
     }
-    week.push(day);
-    day++;
+
+    if ((weekIndex === 0 && j >= _firstDayWeek) || weekIndex > 0) {
+      week.push(day);
+      day++;
+    }
   }
 
   if (!week.length) {

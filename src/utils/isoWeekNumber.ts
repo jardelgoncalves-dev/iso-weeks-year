@@ -1,11 +1,5 @@
 import { InternalError } from './error/internal-error';
 
-export type ObjectDate = {
-  day: number;
-  month: number;
-  year: number;
-};
-
 export const isoWeekNumber = (date: Date): number => {
   const isDateValid = date && date instanceof Date && !isNaN(date.valueOf());
 

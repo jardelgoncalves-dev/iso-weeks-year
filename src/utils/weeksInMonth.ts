@@ -10,7 +10,7 @@ export const weeksInMonth = (
   weekIndex = 0,
   loopFinish = false
 ): number[][] => {
-  if (month < 0 || month > 11) throw new InternalError('Error invalid month!');
+  if (month < 0 || month > 11) throw new InternalError('Error: invalid month!');
 
   if (loopFinish) return weeks;
   const _firstDayWeek = firstDayWeek(month, year);

@@ -1,4 +1,6 @@
 src
+test
+dist/test
 tsconfig.json
 tslint.json
 .prettierrc

@@ -1,13 +1,11 @@
 {
   "name": "iso-weeks-year",
-  "version": "0.0.1",
+  "version": "1.0.1",
   "description": "Library to view week numbers for a year",
   "main": "dist/src/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc",
-    "prepublish": "npm run build",
-    "publish": "npm publish",
     "test": "jest"
   },
   "repository": {

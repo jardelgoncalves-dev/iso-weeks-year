@@ -1,8 +1,9 @@
 {
   "name": "iso-weeks-year",
-  "version": "0.0.1",
+  "version": "1.0.1",
   "description": "Library to view week numbers for a year",
-  "main": "index.js",
+  "main": "dist/src/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc",
     "test": "jest"
@@ -26,6 +27,7 @@
     "url": "https://github.com/jardelgoncalves/iso-weeks-year/issues"
   },
   "homepage": "https://github.com/jardelgoncalves/iso-weeks-year#readme",
+  "publishConfig": { "registry": "https://npm.pkg.github.com/@jardelgoncalves" },
   "devDependencies": {
     "@types/jest": "^26.0.14",
     "@types/supertest": "^2.0.10",

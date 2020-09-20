@@ -1,4 +1,5 @@
 import { daysInMonth } from './daysInMonth';
+import { treatMonth, treatYear } from './treat';
 
 export const getSixDays = (
   month: number,
@@ -7,6 +8,8 @@ export const getSixDays = (
 ): number[] => {
   if (!last) return [1, 2, 3, 4, 5, 6];
 
+  month = treatMonth(month);
+  year = treatYear(month, year);
   const lastDay = daysInMonth(month, year);
   return [
     lastDay - 5,

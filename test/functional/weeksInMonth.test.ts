@@ -5,8 +5,8 @@ describe('Util weeksInMonth function', () => {
     const weeks = weeksInMonth(8, 2020);
 
     expect(weeks.length).toEqual(5); // 5 weeks
-    expect(weeks[0][0]).toEqual(30); // August 30
-    expect(weeks[4][weeks[4].length - 1]).toEqual(3); // October 3
+    expect(weeks[0].data[0]).toEqual(30); // August 30
+    expect(weeks[4].data[weeks[4].data.length - 1]).toEqual(3); // October 3
   });
 
   it('should return an error if month is invalid', () => {

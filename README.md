@@ -12,7 +12,9 @@ yarn add iso-weeks-year
 ```
 
 ## Usage
-- get every week a year
+- **Get every week a year**<br>
+  The months range from 0 to 11, where 0 is January and 11 is December
+
 ```js
 const { weekNumberToYear } = require('iso-weeks-year');
 // or import { weekNumberToYear } from 'iso-weeks-year';
@@ -54,12 +56,12 @@ console.log(weeks)
 ]
 */
 ```
-- get the week number from a date
+- **Get the week number from a date**
 ```js
 const { weekNumberToDate } = require('iso-weeks-year');
-// or import { weekNumberToDate } from 'iso-weeks-year'
+// or import { weekNumberToDate } from 'iso-weeks-year';
 
-const weekNumber = weekNumberToDay(new Date(2020, 0, 8)); // January 8, 2020
+const weekNumber = weekNumberToDate(new Date(2020, 0, 8)); // January 8, 2020
 
 console.log(weekNumber)
 // output: 2

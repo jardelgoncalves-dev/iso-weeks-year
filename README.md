@@ -12,8 +12,10 @@ yarn add iso-weeks-year
 ```
 
 ## Usage
+- get every week a year
 ```js
-import { weekNumberToYear } from 'iso-weeks-year'
+const { weekNumberToYear } = require('iso-weeks-year');
+// or import { weekNumberToYear } from 'iso-weeks-year';
 
 const weeks = weekNumberToYear(2020);
 
@@ -52,11 +54,18 @@ console.log(weeks)
 ]
 */
 ```
-
+- get the week number from a date
 ```js
-import { weekNumberToDate } from 'iso-weeks-year'
+const { weekNumberToDate } = require('iso-weeks-year');
+// or import { weekNumberToDate } from 'iso-weeks-year'
 
 const weekNumber = weekNumberToDay(new Date(2020, 0, 8)); // January 8, 2020
 
-console.log(weekNumber) // output: 2
+console.log(weekNumber)
+// output: 2
 ```
+
+## Contributing
+- Fork the repository
+- Create a `development` based branch with the name of the feature / fix
+- And after completing your feature / fix create a PR for `development`

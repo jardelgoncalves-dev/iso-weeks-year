@@ -13,10 +13,14 @@ export const isoWeekNumber = (date: Date): number => {
     date.getDate()
   );
 
-  copyDate.setUTCDate(copyDate.getUTCDate() + 4 - (copyDate.getUTCDay() || 7));
-  const yearStart = new Date(Date.UTC(copyDate.getUTCFullYear(), 0, 1));
+  const dayn = (date.getDay() + 6) % 7;
+  copyDate.setDate(copyDate.getDate() - dayn + 3);
 
-  return Math.ceil(
-    ((copyDate.getTime() - yearStart.getTime()) / 86400000 + 1) / 7
-  );
+  const firstThursday = copyDate.valueOf();
+  copyDate.setMonth(0, 1);
+  if (copyDate.getDay() !== 4) {
+    copyDate.setMonth(0, 1 + ((4 - copyDate.getDay() + 7) % 7));
+  }
+
+  return 1 + Math.ceil((firstThursday - copyDate.valueOf()) / 604800000);
 };

@@ -1,5 +1,5 @@
 import { weeksInMonth, Week } from './utils/weeksInMonth';
-import { isoWeekNumber } from './utils/isoWeekNumber';
+import { weekNumberToDate } from './utils/weekNumberToDate';
 import { orderBy } from './utils/order';
 
 export interface WeekData {
@@ -24,7 +24,7 @@ const duplicateReduce = (acc: IsoWeekNumber[], item: IsoWeekNumber) => {
 
 const mapIsoWeek = (w: Week): IsoWeekNumber => {
   const date = new Date(w.year, w.month, w.data[1]);
-  const weekNumber = isoWeekNumber(date);
+  const weekNumber = weekNumberToDate(date);
   date.setDate(date.getDate() + 6);
   return {
     from: {
@@ -54,7 +54,7 @@ const isoWeekNormalized = (weeks: Week[][]): IsoWeekNumber[] => {
   );
 };
 
-export const isoWeeksNumber = (year: number): IsoWeekNumber[] => {
+export const weekNumberToYear = (year: number): IsoWeekNumber[] => {
   const weeks = [];
   for (let i = 0; i <= 11; i++) {
     const weeksMonth = weeksInMonth(i, year);
@@ -63,3 +63,5 @@ export const isoWeeksNumber = (year: number): IsoWeekNumber[] => {
 
   return isoWeekNormalized(weeks);
 };
+
+export { weekNumberToDate };
